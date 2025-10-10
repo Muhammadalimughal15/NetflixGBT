@@ -1,9 +1,19 @@
 # Netflix GBT
 
 - Create React App
-  -Configured TailwindCSS
-  -Header
-  -Login From
+  - Configured TailwindCSS
+  - Header
+  - Routing of App
+  - Login From
+  - Sign Up Form
+  - Form Validation
+  - UseRef Hook
+  - Firebase Setup
+  - Deploying our app to production 
+  - Create Signup User Account
+  - Implement Sign in User API
+  -Created Redux Store with UserSlice
+
 
 # Feature
 

@@ -1,43 +1,43 @@
 import React, { useEffect } from "react";
-import { createBrowserRouter, RouterProvider, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Browse from "./Browse";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
 
 const Body = () => {
-  const navigate = useNavigate();
-
-  const appRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Login />,
-    },
-    {
-      path: "/browse",
-      element: <Browse />,
-    },
-  ]);
+  const dispatch = useDispatch();
+  // Removed unused dispatch variable
+  // const dispatch = useDispatch();
+  // Initialize navigate from useNavigate hook
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log("✅ User signed in:", user.uid);
-        navigate("/browse");
+        const { uid, email, displayName } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
       } else {
-        console.log("🚪 User signed out");
-        navigate("/");
+        dispatch(removeUser());
       }
     });
 
     return () => unsubscribe();
-  }, [navigate]);
+  });
 
   return (
-    <div>
-      <RouterProvider router={appRouter} />
-    </div>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/browse" element={<Browse />} />
+    </Routes>
   );
 };
 
-export default Body;
+export default function App() {
+  return (
+    <Router>
+      <Body />
+    </Router>
+  );
+}

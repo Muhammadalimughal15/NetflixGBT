@@ -12,7 +12,22 @@
   - Deploying our app to production 
   - Create Signup User Account
   - Implement Sign in User API
-  -Created Redux Store with UserSlice
+  - Created Redux Store with UserSlice
+  - Implemented Sign out Feature
+  - Updated profile
+  - Fetch movie from TMDB Movies 
+  - Add hardcoded value to the constant  files
+  - Register for TMDB API & creat app & get access token
+  - Get data from TMDB now playing movies list
+  - Custom Hooks For NowPlating movies
+  - Create a MovisSlice
+  - Update store with Movies Data
+  - Planing for MainContainer and Secondary container
+  - Fetch data for trailer video
+  - Update Store with trailer video data
+  - Embedded the youtube video and make it autoplay and mute
+  - Tailwind css classes to make mainContainer awesome
+
 
 
 # Feature

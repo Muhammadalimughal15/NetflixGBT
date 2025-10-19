@@ -1,17 +1,28 @@
 import React from "react";
 
 const VideoTitle = ({ title, overview }) => {
-  return ( 
-    <div className="w-screen aspect-video pt-[20%] px-24 text-white  absolute bg-gradient-to-r from-black">
-      <h1 className="text-5xl font-bold mb-4">{title}</h1>
-      <p className="text-lg w-1/2 mb-6 break-words">{overview}</p>
-      <div className="space-x-4">
-        <button className="bg-white text-black px-6 py-2 rounded-md font-semibold hover:bg-gray-300 transition">
-          ▶ Play
-        </button>
-        <button className="bg-gray-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-700 transition">
-          ℹ More Info
-        </button>
+  return (
+    <div className="absolute inset-0 flex flex-col justify-center px-12 md:px-24 text-white z-20">
+      <div className="max-w-2xl space-y-6">
+        {/* 🎬 Movie Title */}
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
+          {title}
+        </h1>
+
+        {/* 📝 Movie Overview */}
+        <p className="text-base md:text-lg text-gray-200 leading-relaxed break-words">
+          {overview}
+        </p>
+
+        {/* 🎮 Action Buttons */}
+        <div className="flex space-x-4 pt-4">
+          <button className="flex items-center gap-2 bg-white text-black px-6 py-2 md:px-8 md:py-3 rounded-md font-semibold hover:bg-gray-300 transition shadow-md">
+            ▶ Play
+          </button>
+          <button className="flex items-center gap-2 bg-gray-700/80 text-white px-6 py-2 md:px-8 md:py-3 rounded-md font-semibold hover:bg-gray-600 transition shadow-md">
+            ℹ More Info
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -12,8 +12,6 @@ const Login = () => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
 
       {/* Header */}
       <div className="relative z-10">

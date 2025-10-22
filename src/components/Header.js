@@ -4,27 +4,59 @@ import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { lOGO as LOGO, USER_ICON } from "../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleGptSearchView } from "../utils/GptSlice";
+import { SUPPORTED_LANGUAGES } from "../utils/constants";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch(); // ✅ Correct way
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   const handleSignOut = async () => {
     try {
-      await signOut(auth);          // ✅ Sign out the user
-      navigate("/login", { replace: true }); // ✅ Redirect to login screen
+      await signOut(auth);
+      navigate("/login", { replace: true });
     } catch (error) {
       console.error("Sign-out error:", error);
     }
   };
 
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
     <header className="absolute top-0 left-0 w-full flex items-center justify-between px-12 py-6 z-30 bg-gradient-to-b from-black/80 to-transparent">
-      {/* Logo */}
       <img className="w-36 cursor-pointer" src={LOGO} alt="Logo" />
 
-      {/* Profile & Dropdown */}
       <div className="relative flex items-center gap-2">
+        {showGptSearch && (
+          <select
+            className="w-48 px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-blue-400 transition"
+            onChange={handleLanguageChange}
+          >
+            {SUPPORTED_LANGUAGES.map((lang) => (
+              <option key={lang.identifier} value={lang.identifier}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
+        )}
+
+        <button
+          className="py-2 px-2 mx-4 my-2 bg-purple-300 text-black rounded-lg"
+          onClick={handleGptSearchClick}
+        >
+          {showGptSearch? "Homepage": " GPT Search"}
+        </button>
+
         <img
           src={USER_ICON}
           alt="User"
@@ -37,7 +69,6 @@ const Header = () => {
           onClick={() => setShowMenu(!showMenu)}
         />
 
-        {/* Dropdown Menu */}
         {showMenu && (
           <div className="absolute right-0 top-14 bg-black/90 text-white rounded shadow-lg border border-gray-700 w-32 z-50">
             <button

@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "./Header";
 import LoginForm from "./LoginForm";
+import { BG_URL } from "../utils/constants";
 
 const Login = () => {
   return (
     <div className="relative h-screen w-full">
       {/* Background Image */}
       <img
-        src="https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY-650-80.jpg.webp"
+        src={BG_URL}
         alt="background"
         className="absolute inset-0 w-full h-full object-cover"
       />

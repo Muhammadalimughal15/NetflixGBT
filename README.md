@@ -32,7 +32,10 @@
   - Build The Movie Card
   - TMDB IMg CDN URL
   - Made The Browse Page Amazing with Tailwind CSS
-  - Use Popular Movies custom hooks 
+  - Use Popular Movies custom hooks
+  - GBT Search Page 
+  - GBT Search Bar
+  - Multi-Language-Feature in our app 
 
 
 

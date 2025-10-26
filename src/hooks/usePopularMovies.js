@@ -7,6 +7,8 @@ import { addPopularMovies } from "../utils/moviesSlice";
 const usePopularMovies = () => {
   const dispatch = useDispatch();
 
+  
+
   useEffect(() => {
     // Inline async function to avoid React warning
     const getPopularMovies = async () => {

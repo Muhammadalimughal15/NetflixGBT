@@ -21,9 +21,10 @@ export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
 export const BG_URL =
   "https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY-650-80.jpg.webp";
 
-
 export const SUPPORTED_LANGUAGES = [
   { identifier: "en", name: "English" },
   { identifier: "pak", name: "Pakistan" },
   { identifier: "spanish", name: "Spanish" },
 ];
+
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;

@@ -35,7 +35,8 @@
   - Use Popular Movies custom hooks
   - GBT Search Page 
   - GBT Search Bar
-  - Multi-Language-Feature in our app 
+  - (Bonus)Multi-Language-Feature in our app
+
 
 
 

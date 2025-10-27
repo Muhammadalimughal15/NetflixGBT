@@ -33,7 +33,7 @@ const Header = () => {
   };
 
   return (
-    <header className="absolute top-0 left-0 w-full flex items-center justify-between px-12 py-6 z-30 bg-gradient-to-b from-black/80 to-transparent">
+    <header className="absolute top-0 left-0 w-full  items-center  px-12 py-6 z-30 bg-gradient-to-b from-black/80 to-transparent  flex flex-col md:flex-row justify-center  md:justify-between ">
       <img className="w-36 cursor-pointer" src={LOGO} alt="Logo" />
 
       <div className="relative flex items-center gap-2">
